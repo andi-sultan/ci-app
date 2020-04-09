@@ -32,20 +32,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php base_url() ?>" class="nav-link">Home</a>
-        </li>
-      </ul>
-    </nav>
-    <!-- /.navbar -->
-
+    <?php $this->load->view('navbar'); ?>    
     <?php $this->load->view('sidebar_menu'); ?>
 
     <!-- Content Wrapper. Contains page content -->
@@ -98,7 +85,7 @@
   <!-- overlayScrollbars -->
   <script src="<?php echo base_url(); ?>/assets/AdminLTE-3.0.2/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="<?php echo base_url(); ?>/assets/AdminLTE-3.0.2/dist/js/adminlte.js"></script>
+  <script src="<?php echo base_url(); ?>/assets/AdminLTE-3.0.2/dist/js/adminlte.min.js"></script>
 </body>
 
 </html>

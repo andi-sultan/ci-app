@@ -26,14 +26,26 @@ class Login extends CI_Controller
         'username' => $this->input->post('username'),
         'password' => $this->input->post('password')
       );
-      if ($this->login_model->find_user($data) == true) {
+      if ($this->login_model->find_user($data)) {
         $this->session->set_userdata('logged_in', 'ciAppLogin');
-        $this->session->set_userdata('ciAppUser', $data['username']);
+        $this->session->set_userdata('ciAppUser', $this->login_model->find_user($data));
         redirect('home');
       } else {
         $page['error_message'] = 'Invalid username or password';
         $this->load->view('login', $page);
       }
+    }
+  }
+
+  public function user_logout()
+  {
+    if (is_login()) {
+      $this->session->unset_userdata('logged_in');
+      $this->session->unset_userdata('ciAppUser');
+      $page['logout_message'] = 'You have been logout';
+      $this->load->view('login', $page);
+    } else {
+      $this->load->view('login');
     }
   }
 

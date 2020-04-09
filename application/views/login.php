@@ -28,14 +28,17 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
+        <?php if (isset($logout_message)) {
+          echo '<p class="login-box-msg"><b>' . $logout_message . '</b></p>';
+        } ?>
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="<?php echo base_url(); ?>login/user_login" method="post">
+        <form action="<?php echo base_url(); ?>user_login" method="post">
           <div class="input-group mb-3">
             <input type="text" class="form-control" name="username" placeholder="Username">
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
+                <span class="fa fa-user"></span>
               </div>
             </div>
           </div>
@@ -70,10 +73,10 @@
         </form>
 
         <p class="mb-1">
-          <a href="forgot-password.html">I forgot my password</a>
+          <a href="#">I forgot my password</a>
         </p>
         <p class="mb-0">
-          <a href="register.html" class="text-center">Register</a>
+          <a href="#" class="text-center">Register</a>
         </p>
       </div>
       <!-- /.login-card-body -->
