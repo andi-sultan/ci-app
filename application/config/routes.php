@@ -49,8 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// login section
+// accessing 'login_first' uri will give user 'Please login first' message
+// in login page
+$route['login_first'] = 'login/index';
 $route['user_login'] = 'login/user_login';
 $route['user_logout'] = 'login/user_logout';
+// end of login section
+
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

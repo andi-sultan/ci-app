@@ -42,7 +42,7 @@ class Login extends CI_Controller
     if (is_login()) {
       $this->session->unset_userdata('logged_in');
       $this->session->unset_userdata('ciAppUser');
-      $page['logout_message'] = 'You have been logout';
+      $page['login_message'] = 'You have been logout';
       $this->load->view('login', $page);
     } else {
       $this->load->view('login');
@@ -51,10 +51,16 @@ class Login extends CI_Controller
 
   public function index()
   {
-    if (is_login()) {
+    if (!empty($_SESSION['logged_in'])) {
       redirect('home');
     } else {
-      $this->load->view('login');
+      $page['login_message'] = null;
+      // if user access user pages (homepage etc.) directly but have not logged in,
+      if ($this->uri->segment(1) == 'login_first') {
+        // then add login message
+        $page['login_message'] = 'Please login first';
+      }
+      $this->load->view('login', $page);
     }
   }
 }
