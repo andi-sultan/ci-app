@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light text-sm">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -20,7 +20,7 @@
           echo $this->session->userdata['ciAppUser'][0]->username;
         } ?> <i class="fas fa-caret-down"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right text-sm">
         <span class="dropdown-item dropdown-header">
           <?php if (isset($this->session->userdata['ciAppUser'])) {
             echo $this->session->userdata['ciAppUser'][0]->name;

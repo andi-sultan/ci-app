@@ -51,7 +51,7 @@ class Login extends CI_Controller
 
   public function index()
   {
-    if ($_SESSION['logged_in'] == 'ciAppLogin') {
+    if (!empty($_SESSION['logged_in']) && $_SESSION['logged_in'] == 'ciAppLogin') {
       redirect('home');
     } else {
       $page['login_message'] = null;

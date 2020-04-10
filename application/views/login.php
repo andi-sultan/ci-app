@@ -29,7 +29,9 @@
     <div class="card">
       <div class="card-body login-card-body">
         <?php if (isset($login_message)) {
-          echo '<p class="login-box-msg"><b>' . $login_message . '</b></p>';
+          echo '<div class="alert alert-info text-center">
+          ' . $login_message . '
+          </div>';
         } ?>
         <p class="login-box-msg">Sign in to start your session</p>
 
@@ -64,20 +66,14 @@
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
             <!-- /.col -->
-            <div class="col-12">
-              <?php if (isset($error_message)) {
-                echo $error_message;
-              } ?>
-            </div>
           </div>
         </form>
 
-        <p class="mb-1">
-          <a href="#">I forgot my password</a>
-        </p>
-        <p class="mb-0">
-          <a href="#" class="text-center">Register</a>
-        </p>
+        <?php if (isset($error_message)) {
+          echo '<div class="alert alert-danger mt-4 text-center">
+          ' . $error_message . '
+          </div>';
+        } ?>
       </div>
       <!-- /.login-card-body -->
     </div>
