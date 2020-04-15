@@ -44,8 +44,6 @@ class Login extends CI_Controller
       $this->session->unset_userdata('ciAppUser');
       $page['login_message'] = 'You have been logout';
       $this->load->view('login', $page);
-    } else {
-      $this->load->view('login');
     }
   }
 
