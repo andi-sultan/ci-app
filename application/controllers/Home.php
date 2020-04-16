@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	{
 		if (is_login()) {
 			$page['title'] = 'Home';
-			$page['content'] = 'editor';
+			$page['content'] = 'dashboard';
 			$this->load->view('home', $page);
 		}
 	}
