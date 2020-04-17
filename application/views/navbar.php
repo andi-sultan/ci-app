@@ -6,7 +6,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="<?php base_url() ?>" class="nav-link">Home</a>
+      <a href="<?php echo base_url() ?>" class="nav-link">Home</a>
     </li>
   </ul>
 
@@ -30,7 +30,7 @@
           <i class="fas fa-cogs"></i> Settings
         </a>
         <div class="dropdown-divider"></div>
-        <a href="<?php base_url() ?>user_logout" class="dropdown-item">
+        <a href="<?php echo base_url() ?>user_logout" class="dropdown-item">
           <i class="fas fa-sign-out-alt"></i> Log Out
         </a>
       </div>
