@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Address_book extends CI_Controller
 {
@@ -11,5 +12,5 @@ class Address_book extends CI_Controller
     }
   }
 }
-        
+
 /* End of file  Address_book.php */

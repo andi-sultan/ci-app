@@ -1,4 +1,5 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Notes extends CI_Controller
 {
@@ -6,10 +7,11 @@ class Notes extends CI_Controller
   {
     if (is_login()) {
       $page['title'] = 'Notes';
-      $page['content'] = 'notes';
+      $page['content'] = 'notes/notes_view';
+      $page['page_script'] = 'notes/notes_scripts';
       $this->load->view('home', $page);
     }
   }
 }
-        
+
 /* End of file  Notes.php */
