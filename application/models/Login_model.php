@@ -14,3 +14,4 @@ class Login_model extends CI_Model
     }
   }
 }
+/* End of file Login_model.php */
