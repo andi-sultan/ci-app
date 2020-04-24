@@ -7,8 +7,8 @@ class Notes extends CI_Controller
   {
     if (is_login()) {
       $page['title'] = 'Notes';
-      $page['content'] = 'notes/notes_view';
-      $page['page_script'] = 'notes/notes_scripts';
+      $page['content'] = 'notes/view';
+      $page['page_script'] = 'notes/scripts';
       $this->load->view('home', $page);
     }
   }
