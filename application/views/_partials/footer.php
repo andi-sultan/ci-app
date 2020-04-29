@@ -20,5 +20,3 @@
 <script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/dist/js/adminlte.min.js"></script>
-<!-- Summernote -->
-<script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.min.js"></script>

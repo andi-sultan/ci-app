@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/summernote/summernote-bs4.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -35,6 +33,19 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0 text-dark"><?php echo $title ?></h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <?php echo $this->uri->segment(1) != 'home' ? '<li class="breadcrumb-item"><a href="' . base_url() . '">Home</a></li>' : '' ?>
+                <?php
+                if ($this->uri->segment(2) != null) {
+                  echo '<li class="breadcrumb-item"><a href="' . base_url() . $this->uri->segment(1) . '">' . ucfirst($this->uri->segment(1)) . '</a></li>';
+                  echo '<li class="breadcrumb-item active">' . ucfirst($this->uri->segment(2)) . '</li>';
+                } else {
+                  echo $this->uri->segment(1) != 'home' ? '<li class="breadcrumb-item active">' . $title . '</li>' : '';
+                }
+                ?>
+              </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->

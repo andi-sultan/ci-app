@@ -23,14 +23,14 @@
               <?php foreach ($notes_data as $data) { ?>
                 <tr>
                   <td>
-                    <b><?php echo substr($data->title, 0, 100) . (strlen($data->title) > 100 ? '...' : '') ?></b><br>
-                    <?php echo substr($data->content, 0, 100) . (strlen($data->content) > 100 ? '...' : '') ?>
+                    <b><?php echo substr($data->title, 0, 80) . (strlen($data->title) > 80 ? '...' : '') ?></b><br>
+                    <?php echo substr($data->content, 0, 80) . (strlen($data->content) > 80 ? '...' : '') ?>
                   </td>
                   <td><?php echo $data->date_created ?></td>
                   <td><?php echo $data->date_modified ?></td>
                   <td>
                     <div class="col-12">
-                      <a href="<?php echo base_url() ?>notes/edit" class="text-lg mr-3" data-toggle="tooltip" title="Edit">
+                      <a href="<?php echo base_url() . 'notes/edit?id=' . $data->id ?>" class="text-lg mr-3" data-toggle="tooltip" title="Edit">
                         <i class="fas fa-pen-square"></i>
                       </a>
                       <a href="<?php echo base_url() ?>notes/delete" class="text-danger text-lg" data-toggle="tooltip" title="Delete">
@@ -64,7 +64,11 @@
 
 <script>
   $(function() {
-    $("#notes-table").DataTable();
+    $("#notes-table").DataTable({
+      "processing": true,
+      "serverSide": true,
+      "ajax": "<?php echo base_url() ?>notes/_dataTable"
+    });
   });
 </script>
 

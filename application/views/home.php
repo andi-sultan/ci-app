@@ -1,4 +1,4 @@
-<!-- <html>, <head>, <body> opening tag and stylesheets -->
+<!-- <html> and <body> opening tag and stylesheets -->
 <?php $this->load->view('_partials/head'); ?>
 <!-- Main content -->
 <section class="content">
