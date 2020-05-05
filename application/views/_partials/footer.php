@@ -18,5 +18,7 @@
 <!-- DataTables -->
 <script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/dist/js/adminlte.min.js"></script>

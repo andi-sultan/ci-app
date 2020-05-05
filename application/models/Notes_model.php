@@ -3,10 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Notes_model extends CI_Model
 {
-  function load_data($id = null, $limit = 1)
+  function load_data($id = null)
   {
     return ($this->db->query(
-      "SELECT * FROM notes" . ($id != null ? " WHERE notes.id = $id" : '') . " LIMIT $limit"
+      "SELECT * FROM notes" .
+        ($id != null ? " WHERE notes.id = $id" : '')
     ))->result();
   }
 
@@ -17,21 +18,31 @@ class Notes_model extends CI_Model
 
   function insert_data($data)
   {
-    $date_created = date("Y-m-d H:i:s");
-    $date_modified = date("Y-m-d H:i:s");
-    return ($this->db->query(
-      "INSERT INTO notes ( title, content, date_created, date_modified )
-        VALUES
-          ( '" . $data['title'] . "', '" . $data['content'] . "', '" . $date_created . "', '" . $date_modified . "' )"
-    ));
+    $values = array(
+      'title' => $data['title'],
+      'content' => $data['content'],
+      'date_created' => date("Y-m-d H:i:s"),
+      'date_modified' => date("Y-m-d H:i:s")
+    );
+    return $this->db->insert('notes', $values);
   }
 
   function update_data($data)
   {
-    $date_modified = date("Y-m-d H:i:s");
-    return ($this->db->query(
-      "UPDATE notes SET title='" . $data['title'] . "',content='" . $data['content'] . "',date_modified='" . $date_modified . "' WHERE id=" . $data['id']
-    ));
+    $values = array(
+      'title' => $data['title'],
+      'content' => $data['content'],
+      'date_modified' => date("Y-m-d H:i:s")
+    );
+
+    $this->db->where('id', $data['id']);
+    return $this->db->update('notes', $values);
+  }
+
+  public function remove_data($id)
+  {
+    return $this->db->delete('notes', array('id' => $id));
   }
 }
+
 /* End of file Notes_model.php */

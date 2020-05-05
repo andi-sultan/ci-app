@@ -19,28 +19,6 @@
                 <th>Edit/Delete</th>
               </tr>
             </thead>
-            <tbody>
-              <?php foreach ($notes_data as $data) { ?>
-                <tr>
-                  <td>
-                    <b><?php echo substr($data->title, 0, 80) . (strlen($data->title) > 80 ? '...' : '') ?></b><br>
-                    <?php echo substr($data->content, 0, 80) . (strlen($data->content) > 80 ? '...' : '') ?>
-                  </td>
-                  <td><?php echo $data->date_created ?></td>
-                  <td><?php echo $data->date_modified ?></td>
-                  <td>
-                    <div class="col-12">
-                      <a href="<?php echo base_url() . 'notes/edit?id=' . $data->id ?>" class="text-lg mr-3" data-toggle="tooltip" title="Edit">
-                        <i class="fas fa-pen-square"></i>
-                      </a>
-                      <a href="<?php echo base_url() ?>notes/delete" class="text-danger text-lg" data-toggle="tooltip" title="Delete">
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-              <?php } ?>
-            </tbody>
             <tfoot>
               <tr>
                 <th>Title - Content</th>
@@ -63,12 +41,60 @@
 <?php $this->load->view('_partials/footer') ?>
 
 <script>
-  $(function() {
+  $(document).ready(function() {
     $("#notes-table").DataTable({
-      "processing": true,
       "serverSide": true,
-      "ajax": "<?php echo base_url() ?>notes/_dataTable"
-    });
+      "processing": true,
+      "order": [
+        // order by third column from left
+        // (Date Modified) count from 0
+        [2, "desc"]
+      ],
+      "ajax": {
+        url: '<?php echo base_url() ?>notes/dataTable',
+        type: 'POST'
+      },
+    })
+
+    $('#notes-table tbody').on('click', '.delete', function() {
+      var id = $(this).attr('note-id')
+      var title = $(this).attr('note-title')
+      $(".modal-body #note-id").val(id);
+      $(".modal-body #note-title").html(title);
+      Swal.fire({
+        title: 'Are you sure?',
+        html: 'You are about to delete note "' + title.bold() + '". You won\'t be able to revert this!',
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function(result) {
+        if (result.value) {
+          $.ajax({
+            type: "POST",
+            url: "<?php echo base_url() ?>notes/delete",
+            dataType: "JSON",
+            data: {
+              id: id
+            },
+            beforeSend: function(data) {
+              $('.btn').prop('disabled', true)
+            },
+            success: function(data) {
+              Swal.fire(
+                'Saved!',
+                'Your note has been deleted.',
+                'success'
+              ).then(() => {
+                $('.btn').prop('disabled', false)
+                $('#notes-table').DataTable().ajax.reload();
+              })
+            }
+          })
+        }
+      })
+    })
   });
 </script>
 
