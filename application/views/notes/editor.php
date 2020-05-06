@@ -61,6 +61,7 @@
         $('a.btn').attr('href', '#')
         Swal.fire({
           toast: true,
+          position: 'top',
           type: 'error',
           html: '<h4>Please fill all the fields!</h4>',
           showConfirmButton: false,
@@ -156,7 +157,7 @@
       clearTimeout(noteTimeout)
       noteTimeout = setTimeout(function() {
         if ($('#id').val() !== '') save()
-      }, 1000);
+      }, 500);
     })
 
     $('#save').click(function() {
