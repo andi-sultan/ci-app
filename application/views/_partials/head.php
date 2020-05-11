@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/AdminLTE-3.0.2/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->

@@ -12,7 +12,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
         <li class="nav-header">Menu</li>
         <li class="nav-item">
           <a href="<?php echo base_url() ?>notes" class="nav-link <?php echo ($this->uri->segment(1) == 'notes') ? 'active' : '' ?>">
@@ -21,9 +21,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url() ?>address_book" class="nav-link <?php echo ($this->uri->segment(1) == 'address_book') ? 'active' : '' ?>">
+          <a href="<?php echo base_url() ?>contacts" class="nav-link <?php echo ($this->uri->segment(1) == 'contacts') ? 'active' : '' ?>">
             <i class="fas fa-address-book nav-icon"></i>
-            <p>Address Book</p>
+            <p>Contacts</p>
           </a>
         </li>
       </ul>

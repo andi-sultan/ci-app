@@ -12,7 +12,7 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label class="text-xl">Title</label>
-                  <input class="form-control form-control-lg" type="text" name="title" id="title" placeholder="Enter ..." value="<?php if (isset($data)) echo $data[0]->title ?>">
+                  <input class="form-control form-control-lg is-invalid" type="text" name="title" id="title" placeholder="Enter ..." value="<?php if (isset($data)) echo $data[0]->title ?>">
                 </div>
               </div>
             </div>
